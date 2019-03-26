@@ -91,7 +91,7 @@ t_node_list =  ['input', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'conv3x3-bn-relu'
 ## Results
 Evaluations of AlphaX in cases of MCTS with meta-DNN and other related searching algorithms on NASBench dataset(maximum nodes number is set to 6). The results are from 200 trails with different random seeds.
 
-<img src='https://github.com/linnanwang/AlphaX-CVPR2019/blob/master/fig/mcts_speed_nasbench.png?raw=true' width="500">
+<img src='https://github.com/linnanwang/AlphaX-NASBench101/blob/master/mcts_speed_nasbench.pdf' width="250">
 
 The figure below shows the visualization of MCTS search process.
 
