@@ -42,11 +42,11 @@ pip install jsonpickle
 
 ## Download the dataset
 
-The full NASBench dataset with jsonpickle format can be found [here](https://drive.google.com/file/d/100xB4Mj7Hc5I0ljVPo7ATmC2kfhytHuN/view?usp=sharing). Dataset size is 138.5MB. You should put the dataset into the directory of AlphaX-NASBench101.
+The full NASBench dataset in our format is at [here](https://drive.google.com/file/d/100xB4Mj7Hc5I0ljVPo7ATmC2kfhytHuN/view?usp=sharing). Please place the dataset into the same directory of AlphaX-NASBench101.
 
 ## Usage
 
-After prepared all dependencies. It is extremely simple to get start our search process.
+After prepared all dependencies, execute the following commands to start the search:
 
 **MCTS without meta_DNN assisted** 
 ```
