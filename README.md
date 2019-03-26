@@ -1,9 +1,15 @@
 # AlphaX-NASBench101
-AlphaX is a new Neural Arcitecture Search (NAS) agent that uses MCTS for efficient model architecture search with Meta-DNN as a predictive model to estimate the accuracy of a sampled architecture. Compared with Random Search, AlphaX builds an online model which guides the future search, compared to greedy methods, e.g. Q-learning, Regularized Evolution or Top-K methods, AlphaX dynamically trades off exploration and exploitation and can escape from locally optimal solutions with fewer number of search trials.
+AlphaX is a new Neural Architecture Search (NAS) agent that uses MCTS for efficient model architecture search with Meta-DNN as a predictive model to estimate the accuracy of a sampled architecture. Compared with Random Search, AlphaX builds an online model which guides the future search, compared to greedy methods, e.g. Q-learning, Regularized Evolution or Top-K methods, AlphaX dynamically trades off exploration and exploitation and can escape from locally optimal solutions with fewer number of search trials. For details of AlphaX, please refer to [AlphaX: eXploring Neural Architectures with Deep Neural Networks and Monte Carlo Tree Search](https://arxiv.org/abs/1805.07440).
 
-This repository hosts the implementation of AlphaX for searching on NASBench-101 from [AlphaX: eXploring Neural Architectures with Deep Neural Networks and Monte Carlo Tree Search](https://arxiv.org/abs/1805.07440). NASBench-101 is a NAS dataset that contains 420k+ networks with their actual training accuracies. For details of NASBench-101, please check [here](https://github.com/google-research/nasbench).
+This repository hosts the implementation of AlphaX for searching on a design domain defined by NASBench-101. NASBench-101 is a NAS dataset that contains 420k+ networks with their actual training, validation accuracies. For details of NASBench-101, please check [here](https://github.com/google-research/nasbench).
 
-The algorithm is based on Monte Carlo Tree Search(MCTS) with meta-DNN assisted for searching the neural net architectures on NASBench dataset. AlphaX is able to quickly find the neural net architecture with highest accuracy on NASBench dataset.
+AlphaX is 2.8x and 3.0x faster than Regularized Evolution and Random Search on NASBench dataset (constrain the nodes <= 6 for 200 trails).
+
+<img src='https://github.com/linnanwang/AlphaX-CVPR2019/blob/master/fig/mcts_speed_nasbench.png?raw=true' width="400">
+
+This is how MCTS progressively probes the search domain. Each node represents an MCTS state; the node color reflects its value, i.e. accuracy, indicating how promising a search branch.
+
+<img src='https://github.com/linnanwang/AlphaX-CVPR2019/blob/master/fig/mcts_viz.png?raw=true' width="400">
 
 ## Requirements
 ```
@@ -91,13 +97,7 @@ t_node_list =  ['input', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'conv3x3-bn-relu'
 #        t_node_list = ['input', 'conv1x1-bn-relu', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'output']
 ```
 ## Results
-Evaluations of AlphaX in cases of MCTS with meta-DNN and other related searching algorithms on NASBench dataset(maximum nodes number is set to 6). The results are from 200 trails with different random seeds.
 
-<img src='https://github.com/linnanwang/AlphaX-CVPR2019/blob/master/fig/mcts_speed_nasbench.png?raw=true' width="250">
-
-The figure below shows the visualization of MCTS search process.
-
-<img src='https://github.com/linnanwang/AlphaX-CVPR2019/blob/master/fig/mcts_viz.png?raw=true' width="500">
 
 
 ## Citation
