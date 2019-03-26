@@ -78,7 +78,7 @@ class arch_generator:
 MAX_NODES     = 6 #inclusive
 MAX_EDGES     = 9 #inclusive
 ```
-- Also lines from 74-80 in net_training.py defines the target. The search stops once it hits the target. The target consists of two parts, the adjacent matrix and the node list.
+- Also lines from 74-80 in net_training.py defines the target. The search stops once it hits the target. The target consists of two parts, the adjacent matrix and the node list. Please change it to a different target after you changing the maximal nodes.
 ```python
 # 6 nodes
 t_adj_mat  = [[0, 1, 1, 1, 1, 1],
