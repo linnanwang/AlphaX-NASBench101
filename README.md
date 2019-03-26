@@ -58,16 +58,16 @@ The full NASBench dataset in our format is at [here](https://drive.google.com/fi
 
 After prepared all dependencies, execute the following commands to start the search:
 
-**MCTS without meta_DNN assisted** 
+**MCTS without meta_DNN** (Fast on CPU) 
 ```
 python MCTS.py
 ```
-**MCTS with meta_DNN assisted** 
+**MCTS with meta_DNN assisted** (Slow, and please run on GPU.)
 ```
 python MCTS_metaDNN.py
 ```
 
-**Note**: meta_DNN requires training to predict the accuracy of a unseen architecture. MCTS with meta_DNN will take extra time in searching process. 
+**Note**: meta_DNN requires training to predict the accuracy of a unseen architecture. MCTS with meta_DNN will take extra time in searching process.
 
 ## Changing the size of search domain
 By default, we constrain the nodes <= 6, that constitus of 60000+ valid networks. The following steps illustate how to expand or constrain the search domain.
