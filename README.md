@@ -67,10 +67,10 @@ python MCTS.py
 python MCTS_metaDNN.py
 ```
 
-**Note**: meta_DNN requires training to predict the accuracy of a unseen architecture. MCTS with meta_DNN will take extra time in searching process.
+**Note**: meta_DNN requires training to predict the accuracy of an unseen architecture. Running it toward GPU is highly recommended.
 
 ## Changing the size of search domain
-By default, we constrain the nodes <= 6, that constitus of 60000+ valid networks. The following steps illustate how to expand or constrain the search domain.
+By default, we constrain the nodes <= 6, that constitus of 60000+ valid networks. The following steps illustate how to expand or shrink the search domain.
 
 - In arch_generator.py, changing the MAX_NODES to any in [3, 4, 5, 6, 7] (line 20). NASBench-101 provides all the networks up to 7 nodes.
 ```python
@@ -78,7 +78,7 @@ class arch_generator:
 MAX_NODES     = 6 #inclusive
 MAX_EDGES     = 9 #inclusive
 ```
-- Also lines from 74-80 in net_training.py defines the target. The search stops once it hits the target. The target consists of two parts, the adjacent matrix and the node list. Please change it to a different target after you changing the maximal nodes.
+- Also lines from 74-80 in net_training.py defines the search target. The search stops once it hits the target. The target consists of two parts, the adjacent matrix and the node list. Please change it to a different target after you changing the maximal nodes.
 ```python
 # 6 nodes
 t_adj_mat  = [[0, 1, 1, 1, 1, 1],
@@ -89,6 +89,10 @@ t_adj_mat  = [[0, 1, 1, 1, 1, 1],
 [0, 0, 0, 0, 0, 0]]
 t_node_list =  ['input', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'output']
 ```
+## Contributors
+Linnan Wang, Brown University,  
+Yiyang Zhao, Unaffiliated, 
+We're also sincerely grateful for Yuu Jinnai (Brown), Yuandong Tian(Facebook AI Research), and Rodrigo Fonseca for their valuable suggestions.
 
 
 
