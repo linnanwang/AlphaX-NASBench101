@@ -3,11 +3,11 @@ AlphaX is a new Neural Architecture Search (NAS) agent that uses MCTS for effici
 
 This repository hosts the implementation of AlphaX for searching on a design domain defined by NASBench-101. NASBench-101 is a NAS dataset that contains 420k+ networks with their actual training, validation accuracies. For details of NASBench-101, please check [here](https://github.com/google-research/nasbench).
 
-In 200 search trails, AlphaX is 2.8x and 3.0x faster than Regularized Evolution and Random Search on NASBench dataset.
+In 200 search trails, AlphaX is on average 2.8x and 3.0x faster than Regularized Evolution and Random Search on NASBench dataset.
 
 <img src='https://github.com/linnanwang/AlphaX-CVPR2019/blob/master/fig/mcts_speed_nasbench.png?raw=true' width="400">
 
-This is how MCTS progressively probes the search domain. Each node represents an MCTS state; the node color reflects its value, i.e. accuracy, indicating how promising a search branch.
+This is how AlphaX progressively probes the search domain. Each node represents an MCTS state; the node color reflects its value, i.e. accuracy, indicating how promising a search branch.
 
 <img src='https://github.com/linnanwang/AlphaX-CVPR2019/blob/master/fig/mcts_viz.png?raw=true' width="400">
 
@@ -56,7 +56,7 @@ The full NASBench dataset in our format is at [here](https://drive.google.com/fi
 
 ## Usage
 
-After prepared all dependencies, execute the following commands to start the search:
+After preparing all dependencies, execute the following commands to start the search:
 
 **MCTS without meta_DNN** (Fast on CPU) 
 ```
@@ -70,7 +70,7 @@ python MCTS_metaDNN.py
 **Note**: meta_DNN requires training to predict the accuracy of an unseen architecture. Running it toward GPU is highly recommended.
 
 ## Changing the size of search domain
-By default, we constrain the nodes <= 6, that constitus of 60000+ valid networks. The following steps illustate how to expand or shrink the search domain.
+By default, we constrain the nodes <= 6, that consists of 60000+ valid networks. The following steps illustrate how to expand or shrink the search domain.
 
 - In arch_generator.py, changing the MAX_NODES to any in [3, 4, 5, 6, 7] (line 20). NASBench-101 provides all the networks up to 7 nodes.
 ```python
@@ -78,7 +78,7 @@ class arch_generator:
 MAX_NODES     = 6 #inclusive
 MAX_EDGES     = 9 #inclusive
 ```
-- Also lines from 74-80 in net_training.py defines the search target. The search stops once it hits the target. The target consists of two parts, the adjacent matrix and the node list. Please change it to a different target after you changing the maximal nodes.
+- Also lines from 74-80 in net_training.py defines the search target. The search stops once it hits the target. The target consists of two parts, the adjacent matrix, and the node list. Please change it to a different target after you changing the maximal nodes.
 ```python
 # 6 nodes
 t_adj_mat  = [[0, 1, 1, 1, 1, 1],
@@ -92,7 +92,7 @@ t_node_list =  ['input', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'conv3x3-bn-relu'
 ## Contributors
 Linnan Wang, Brown University,  Yiyang Zhao, Unaffiliated,
 
-We're also sincerely grateful for Yuu Jinnai (Brown), Yuandong Tian(Facebook AI Research), and Rodrigo Fonseca for their valuable suggestions.
+We're also sincerely grateful for the valuable suggestions from Yuu Jinnai (Brown), Yuandong Tian(Facebook AI Research), and Rodrigo Fonseca (my awesome advisor at Brown). 
 
 
 
