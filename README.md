@@ -90,8 +90,8 @@ t_adj_mat  = [[0, 1, 1, 1, 1, 1],
 t_node_list =  ['input', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'output']
 ```
 ## Contributors
-Linnan Wang, Brown University,  
-Yiyang Zhao, Unaffiliated, 
+Linnan Wang, Brown University,  Yiyang Zhao, Unaffiliated,
+
 We're also sincerely grateful for Yuu Jinnai (Brown), Yuandong Tian(Facebook AI Research), and Rodrigo Fonseca for their valuable suggestions.
 
 
