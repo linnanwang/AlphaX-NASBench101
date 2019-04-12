@@ -20,6 +20,14 @@ Please cite our work, if it helps your research ;)
   year={2018}
 }
 ```
+## the best architecture in the search, AlphaX-1, 97.2 test accuracy on CIFAR-10
+Go to folder alphax-1-net,
+```
+python model_test.py
+```
+Final top_1 test accuracy is 97.22
+Final top_5 test accuracy is 99.95
+
 
 ## Requirements
 ```
@@ -34,6 +42,9 @@ Python >= 3.5.5, numpy >= 1.9.1, keras >= 2.1.6, jsonpickle
 git clone git@github.com:linnanwang/AlphaX-NASBench101.git
 cd AlphaX-NASBench101
 ```
+After 78 batches, you will get:
+Final top_1 test accuracy is 97.22
+Final top_5 test accuracy is 99.95
 
 2. (optional) Create a virtualenv for this library.
 
