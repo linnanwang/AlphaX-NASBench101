@@ -13,11 +13,11 @@ This is how AlphaX progressively probes the search domain. Each node represents 
 
 Please cite our work, if it helps your research ;)
 ```
-@article{wang2018alphax,
-  title={AlphaX: eXploring Neural Architectures with Deep Neural Networks and Monte Carlo Tree Search},
-  author={Wang, Linnan and Zhao, Yiyang and Jinnai, Yuu},
-  journal={arXiv preprint arXiv:1805.07440},
-  year={2018}
+@article{wang2019alphax,
+  title={Alphax: exploring neural architectures with deep neural networks and monte carlo tree search},
+  author={Wang, Linnan and Zhao, Yiyang and Jinnai, Yuu and Tian, Yuandong and Fonseca, Rodrigo},
+  journal={arXiv preprint arXiv:1903.11059},
+  year={2019}
 }
 ```
 ## the best architecture in the search, AlphaX-1, 97.2 test accuracy on CIFAR-10
