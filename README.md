@@ -11,6 +11,9 @@ This is how AlphaX progressively probes the search domain. Each node represents 
 
 <img src='https://github.com/linnanwang/AlphaX-NASBench101/blob/master/mcts_viz.png?raw=true' width="400">
 
+## current caveat
+When nodes go to 7, the current simulation will be extremely inefficient. It can be extremely slow to find the global optimum at nodes = 7. However, this issue is addressed by our recent work LaNAS, https://linnanwang.github.io/latent-actions.pdf. We will release LaNAS under the repositories of Facebook AI Research soon.
+
 Please cite our work, if it helps your research ;)
 ```
 @article{wang2019alphax,
