@@ -1,5 +1,5 @@
 # AlphaX-NASBench101
-AlphaX is a new Neural Architecture Search (NAS) agent that uses MCTS for efficient model architecture search with Meta-DNN as a predictive model to estimate the accuracy of a sampled architecture. Compared with Random Search, AlphaX builds an online model which guides the future search, compared to greedy methods, e.g. Q-learning, Regularized Evolution or Top-K methods, AlphaX dynamically trades off exploration and exploitation and can escape from locally optimal solutions with fewer number of search trials. For details of AlphaX, please refer to [AlphaX: eXploring Neural Architectures with Deep Neural Networks and Monte Carlo Tree Search](https://arxiv.org/pdf/1903.11059.pdf).
+AlphaX is a new Neural Architecture Search (NAS) agent that uses MCTS for efficient model architecture search with Meta-DNN as a predictive model to estimate the accuracy of a sampled architecture. Compared with Random Search, AlphaX builds an online model which guides the future search, compared to greedy methods, e.g. Q-learning, Regularized Evolution or Top-K methods, AlphaX dynamically trades off exploration and exploitation and can escape from locally optimal solutions with fewer number of search trials. For details of AlphaX, please refer to [Neural Architecture Search using Deep Neural Networks and Monte Carlo Tree Search](https://arxiv.org/pdf/1903.11059.pdf).
 
 This repository hosts the implementation of AlphaX for searching on a design domain defined by NASBench-101. NASBench-101 is a NAS dataset that contains 420k+ networks with their actual training, validation accuracies. For details of NASBench-101, please check [here](https://github.com/google-research/nasbench).
 
@@ -12,9 +12,10 @@ This is how AlphaX progressively probes the search domain. Each node represents 
 <img src='https://github.com/linnanwang/AlphaX-NASBench101/blob/master/mcts_viz.png?raw=true' width="400">
 
 ## current caveat
-When nodes go to 7, the current simulation will be extremely inefficient. It can be extremely slow to find the global optimum at nodes = 7. However, this issue is addressed by our recent work LaNAS, https://linnanwang.github.io/latent-actions.pdf. We will release LaNAS under the repositories of Facebook AI Research soon.
 
-Please cite our work, if it helps your research ;)
+However, this work still needs explicitly defines actions, which is not optimized toward a performance metric. Our recent work has successfully solved this issue and has shown orders of improvement in sample efficiency (LaNAS), https://linnanwang.github.io/latent-actions.pdf. We will release LaNAS under the repositories of Facebook AI Research soon.
+
+The work has been published in AAAI-20; please cite our work, if it helps your research ;)
 ```
 @article{wang2019alphax,
   title={Alphax: exploring neural architectures with deep neural networks and monte carlo tree search},
