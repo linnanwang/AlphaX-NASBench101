@@ -5,7 +5,7 @@ This repository hosts the implementation of AlphaX for searching on a design dom
 
 The comparisions of sample efficiency, MCTS v.s. various baselines, is shown below:  
 
-<img src='https://github.com/linnanwang/AlphaX-NASBench101/blob/master/mcts_speed_nasbench.png?raw=true' width="400">
+<img src='https://github.com/linnanwang/AlphaX-NASBench101/blob/master/nasbench_speed.png?raw=true' width="400">
 
 This is how AlphaX progressively probes the search domain. Each node represents an MCTS state; the node color reflects its value, i.e. accuracy, indicating how promising a search branch.
 
