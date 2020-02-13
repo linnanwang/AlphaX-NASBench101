@@ -53,7 +53,6 @@ class arch_generator:
         self.params_range = {"filters":[self.filters_low, self.filters_up], "kernel_size":[self.kernel_low,  self.kernel_up] ,
             "pool_size":[self.pool_size_low, self.pool_size_up],
             "stride":[self.stride_low, self.stride_up] }
-        random.seed(datetime.now())
 
 
     def query_param_range(self, name):

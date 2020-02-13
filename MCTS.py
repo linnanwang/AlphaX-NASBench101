@@ -85,8 +85,6 @@ class MCTS:
 
 
     def __init__(self):
-        np.random.seed(seed=int(time.time()))
-        random.seed(datetime.now())
         self.arch_gen = arch_generator()
         self.net_predictor = net_predictor()
         self.net_trainer = train_net()

@@ -51,8 +51,6 @@ class train_net:
         print("%"*20)
     
     def __init__(self):
-        np.random.seed(int(time.time()))
-        K.set_image_dim_ordering('th')
         (x_train, y_train), (x_test, y_test) = cifar10.load_data()
         x_train = x_train.astype('float32')
         x_test  = x_test.astype('float32')
@@ -62,22 +60,22 @@ class train_net:
         self.y_test  = np_utils.to_categorical( y_test )
         self.num_classes = self.y_test.shape[1]
         # 7 nodes
-#        t_adj_mat  = [[0, 1, 1, 0, 0, 1, 1],
-#                      [0, 0, 0, 0, 0, 1, 0],
-#                      [0, 0, 0, 1, 0, 0, 0],
-#                      [0, 0, 0, 0, 1, 0, 0],
-#                      [0, 0, 0, 0, 0, 1, 0],
-#                      [0, 0, 0, 0, 0, 0, 1],
-#                      [0, 0, 0, 0, 0, 0, 0]]
-#        t_node_list = ['input', 'conv1x1-bn-relu', 'conv3x3-bn-relu', 'maxpool3x3', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'output']
+        t_adj_mat  = [[0, 1, 1, 0, 0, 1, 1],
+                     [0, 0, 0, 0, 0, 1, 0],
+                     [0, 0, 0, 1, 0, 0, 0],
+                     [0, 0, 0, 0, 1, 0, 0],
+                     [0, 0, 0, 0, 0, 1, 0],
+                     [0, 0, 0, 0, 0, 0, 1],
+                     [0, 0, 0, 0, 0, 0, 0]]
+        t_node_list = ['input', 'conv1x1-bn-relu', 'conv3x3-bn-relu', 'maxpool3x3', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'output']
         # 6 nodes
-        t_adj_mat  = [[0, 1, 1, 1, 1, 1],
-                     [0, 0, 0, 0, 1, 0],
-                     [0, 0, 0, 1, 0, 0],
-                     [0, 0, 0, 0, 1, 0],
-                     [0, 0, 0, 0, 0, 1],
-                     [0, 0, 0, 0, 0, 0]]
-        t_node_list =  ['input', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'output']
+        # t_adj_mat  = [[0, 1, 1, 1, 1, 1],
+        #              [0, 0, 0, 0, 1, 0],
+        #              [0, 0, 0, 1, 0, 0],
+        #              [0, 0, 0, 0, 1, 0],
+        #              [0, 0, 0, 0, 0, 1],
+        #              [0, 0, 0, 0, 0, 0]]
+        # t_node_list =  ['input', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'conv3x3-bn-relu', 'output']
         #5 nodes
 #        t_adj_mat  = [[0, 1, 1, 1, 1],
 #                      [0, 0, 1, 1, 0],
@@ -204,7 +202,7 @@ class train_net:
         acc = self.traing_mem[network_str]
         if network_str not in self.training_trace:
             self.training_trace[network_str] = acc
-            self.counter += 1
+        self.counter += 1
         if acc > self.best_accuracy:
             print("@@@update best state:", network)
             print("@@@update best acc:", acc)
@@ -212,15 +210,14 @@ class train_net:
             item = [acc, self.counter]
             self.best_trace[network_str] = item
             print("target str:", self.target_str)
-            if network_str == self.target_str:
-                sorted_best_traces = sorted(self.best_trace.items(), key=operator.itemgetter(1))
-                final_results = []
-                for item in sorted_best_traces:
-                    final_results.append( item[1] )
-                final_results_str = json.dumps(final_results)
-                with open("result.txt", "a") as f:
-                    f.write(final_results_str + '\n')
-                print("$$$$$$$$$$$$$$$$$$$CONGRATUGLATIONS$$$$$$$$$$$$$$$$$$$")
-                os._exit(1)
+        if self.counter % 1000 == 0:
+            sorted_best_traces = sorted(self.best_trace.items(), key=operator.itemgetter(1))
+            final_results = []
+            for item in sorted_best_traces:
+                final_results.append( item[1] )
+            final_results_str = json.dumps(final_results)
+            filename = "results/result_"+str(self.counter)
+            with open(filename, "a") as f:
+                f.write(final_results_str + '\n')
 
         return acc, is_found
