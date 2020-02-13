@@ -3,9 +3,9 @@ AlphaX is a new Neural Architecture Search (NAS) agent that uses MCTS for effici
 
 This repository hosts the implementation of AlphaX for searching on a design domain defined by NASBench-101. NASBench-101 is a NAS dataset that contains 420k+ networks with their actual training, validation accuracies. For details of NASBench-101, please check [here](https://github.com/google-research/nasbench).
 
-In 200 search trails, AlphaX is on average 2.8x and 3.0x faster than Regularized Evolution and Random Search on NASBench dataset.
+The comparisions of sample efficiency, MCTS v.s. various baselines, is shown below:  
 
-<img src='https://github.com/linnanwang/AlphaX-NASBench101/blob/master/mcts_speed_nasbench.png?raw=true' width="400">
+<img src='https://github.com/linnanwang/AlphaX-NASBench101/blob/master/mcts_speed_nasbench_boxplot.pdf?raw=true' width="400">
 
 This is how AlphaX progressively probes the search domain. Each node represents an MCTS state; the node color reflects its value, i.e. accuracy, indicating how promising a search branch.
 
