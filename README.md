@@ -8,9 +8,9 @@ The comparisions of sample efficiency, MCTS v.s. various baselines in NASBench-1
 <img src='https://github.com/linnanwang/AlphaX-NASBench101/blob/master/nasbench_speed.png?raw=true' width="400">
 
 ## ensure fair evaluations
-Our encoding mechanism is same as NASBench, fomulating a search space of 5*10^8 architectures. While NASBench only contains 4.2*10^5 architecture-accuracy pairs. The predictive models such as using a simple MLP can perform well if only train and test using 4.2*10^5 architectures in NASBench, but this is a unfair comparisons as in the real scenarios, it will be impossible to enumerate and predict every architectures in the search space. Therefore, please pay special attention to this minor details! 
+Our encoding mechanism is same as NASBench, fomulating a search space of 500000000 architectures. While NASBench only contains 420000 architecture-accuracy pairs. The predictive models such as using a simple MLP can perform well if only train and test using 420000 architectures in NASBench, but this is a unfair comparisons as in the real scenarios, it will be impossible to enumerate and predict every architectures in the search space. Therefore, please pay special attention to this minor details! 
 
-
+## Visualizations
 This is how AlphaX progressively probes the search domain. Each node represents an MCTS state; the node color reflects its value, i.e. accuracy, indicating how promising a search branch.
 
 <img src='https://github.com/linnanwang/AlphaX-NASBench101/blob/master/mcts_viz.png?raw=true' width="400">
