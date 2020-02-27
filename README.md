@@ -28,7 +28,7 @@ The work has been published in AAAI-20; please cite our work, if it helps your r
   year={2019}
 }
 ```
-## the best architecture in the search, AlphaX-1, 97.2 test accuracy on CIFAR-10
+## the best architecture in the search, AlphaX-1, 97.2 test accuracy on CIFAR-10 (the latest is 98, will update later)
 Go to folder alphax-1-net,
 ```
 python model_test.py
