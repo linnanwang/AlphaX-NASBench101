@@ -8,7 +8,9 @@ The comparisions of sample efficiency, MCTS v.s. various baselines in NASBench-1
 <img src='https://github.com/linnanwang/AlphaX-NASBench101/blob/master/nasbench_speed.png?raw=true' width="400">
 
 ## ensure fair evaluations
-Our encoding mechanism is same as NASBench, formulating a search space of 500000000 architectures. While NASBench only contains 420000 architecture-accuracy pairs, and we return 0 for those not in the dataset but in the search space. The predictive models such as using a simple MLP can perform well (<= 6000 to find the global optimum on the dataset) if only train and predict using 420000 architectures in NASBench, but this result is unfair and invalid as in the real scenarios, it will be impossible to enumerate and predict every architecture in the search space, e.g. NASNet 10^20. Therefore, please pay special attention to these minor details!
+Our encoding mechanism is same as NASBench, formulating a search space of 500000000 architectures. While NASBench only contains 420000 architecture-accuracy pairs, and we return 0 for those not in the dataset but in the search space. The predictive models such as using a simple MLP can perform well (<= 6000 to find the global optimum on the dataset, see this repo https://github.com/linnanwang/MLP-NASBench-101) if only train and predict using 420000 architectures in NASBench, but this result is unfair and invalid as in the real scenarios, it will be impossible to enumerate and predict every architecture in the search space, e.g. NASNet 10^20. In fact, using a pure predictive model to guide the search is proven to be less efficient than SMBO alternatives such as Bayesian Optimizations for lacking a mechanism to explore.
+
+Therefore, please pay attention to these minor details! A good result does not necessarily mean a good algorithm!
 
 ## Visualizations
 This is how AlphaX progressively probes the search domain. Each node represents an MCTS state; the node color reflects its value, i.e. accuracy, indicating how promising a search branch.
