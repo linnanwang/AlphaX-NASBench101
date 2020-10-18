@@ -1,4 +1,7 @@
 # AlphaX-NASBench101
+
+<b>please check <a href="https://github.com/facebookresearch/LaMCTS">LaNAS/LA-MCTS</a> repository for our latest results</b>
+
 AlphaX is a new Neural Architecture Search (NAS) agent that uses MCTS for efficient model architecture search with Meta-DNN as a predictive model to estimate the accuracy of a sampled architecture. Compared with Random Search, AlphaX builds an online model which guides the future search, compared to greedy methods, e.g. Q-learning, Regularized Evolution or Top-K methods, AlphaX dynamically trades off exploration and exploitation and can escape from local optimum with fewer number of search trials. For details of AlphaX, please refer to [Neural Architecture Search using Deep Neural Networks and Monte Carlo Tree Search](https://arxiv.org/pdf/1805.07440.pdf).
 
 This repository hosts the implementation of AlphaX for searching on a design domain defined by NASBench-101. NASBench-101 is a NAS dataset that contains 420k+ networks with their actual training, validation accuracies. For details of NASBench-101, please check [here](https://github.com/google-research/nasbench).
